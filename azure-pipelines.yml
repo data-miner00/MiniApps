@@ -1,0 +1,29 @@
+trigger:
+  - master
+
+pool: 'default'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+  - task: CmdLine@2
+    inputs:
+      script: |
+        echo  '$(System.DefaultWorkingDirectory)'
+        dir
+    displayName: Show working directory
+
+  - task: NuGetToolInstaller@1
+
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '$(solution)'
+
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
