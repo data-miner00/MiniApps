@@ -12,7 +12,7 @@
         Title="MainWindow" MouseDown="Window_MouseDown">
     <Grid>
         <Grid Width="400" Height="400">
-            <Image Source="D://dawn.jpg" />
+            <Image Source="./Image/dawn.jpg" />
         </Grid>
     </Grid>
 </Window>
