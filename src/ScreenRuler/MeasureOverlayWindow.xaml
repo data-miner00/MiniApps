@@ -1,0 +1,27 @@
+<Window x:Class="ScreenRuler.MeasureOverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScreenRuler"
+        mc:Ignorable="d"
+        Title="MeasureOverlayWindow"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="#01000000"
+        Topmost="True"
+        ShowInTaskbar="False"
+        Cursor="Cross"
+        WindowStartupLocation="Manual"
+        Loaded="Window_Loaded"
+        MouseMove="Window_MouseMove"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        MouseLeftButtonUp="Window_MouseLeftButtonUp"
+        KeyDown="Window_KeyDown">
+    <Canvas x:Name="RootCanvas" Background="#01000000">
+        <Line x:Name="MeasureLine" Stroke="#FF00E5FF" StrokeThickness="2" Visibility="Collapsed"/>
+        <Border x:Name="Tooltip" Background="#DD222222" CornerRadius="4" Padding="6,3" IsHitTestVisible="False" Visibility="Collapsed">
+            <TextBlock x:Name="TooltipText" Foreground="White" FontFamily="Consolas"/>
+        </Border>
+    </Canvas>
+</Window>

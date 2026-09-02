@@ -17,4 +17,5 @@
   <Project Path="src/CronExpressionSimulator/CronExpressionSimulator.csproj" />
   <Project Path="src/ODataQuerySimulator/ODataQuerySimulator.csproj" />
   <Project Path="src/RegexTester/RegexTester.csproj" />
+  <Project Path="src/ScreenRuler/ScreenRuler.csproj" />
 </Solution>
