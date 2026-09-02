@@ -3,7 +3,7 @@
 Driving a console REPL's full interaction non-interactively in one shot, instead of typing it in by hand, so you can verify a multi-step flow (compile, match, error, exit) in a single command.
 
 ```bash
-printf '(?<user>[\\w.+-]+)@(?<domain>[\\w-]+\\.[\\w.-]+)\nContact me at foo.bar@example.com or admin@sub.example.org\npattern\n[invalid(\nexit\n' | dotnet run --project RegexTester --no-build 2>&1
+printf '(?<user>[\\w.+-]+)@(?<domain>[\\w-]+\\.[\\w.-]+)\nContact me at foo.bar@example.com or admin@sub.example.org\npattern\n[invalid(\nexit\n' | dotnet run --project src/RegexTester --no-build 2>&1
 ```
 
 Each `\n`-separated line in the `printf` becomes one line of stdin the REPL reads via `Console.ReadLine()`. Use `--no-build` after a prior `dotnet build` to skip rebuilding. Reusable for any of this repo's REPL-style console apps (`ODataQuerySimulator`, `CronExpressionSimulator`, `RegexTester`) — swap the piped lines for whatever commands/inputs exercise the flow you want to check.
