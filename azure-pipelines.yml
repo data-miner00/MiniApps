@@ -1,3 +1,5 @@
+name: $(semanticVersion)-build$(rev:rrr)
+
 trigger:
   - master
 
