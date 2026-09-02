@@ -1,12 +1,12 @@
 trigger:
   - master
 
-pool: 'default'
+pool: "default"
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  solution: "**/*.slnx"
+  buildPlatform: "Any CPU"
+  buildConfiguration: "Release"
 
 steps:
   - task: CmdLine@2
@@ -20,10 +20,10 @@ steps:
 
   - task: NuGetCommand@2
     inputs:
-      restoreSolution: '$(solution)'
+      restoreSolution: "$(solution)"
 
   - task: VSBuild@1
     inputs:
-      solution: '$(solution)'
-      platform: '$(buildPlatform)'
-      configuration: '$(buildConfiguration)'
+      solution: "$(solution)"
+      platform: "$(buildPlatform)"
+      configuration: "$(buildConfiguration)"

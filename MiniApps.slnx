@@ -1,0 +1,20 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="azure-pipelines.yml" />
+    <File Path="EULA.rtf" />
+    <File Path="LICENSE.txt" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Borderless/Borderless.csproj" />
+  <Project Path="ColorPicker/ColorPicker.csproj" />
+  <Project Path="CronExpressionSimulator/CronExpressionSimulator.csproj" />
+  <Project Path="ODataQuerySimulator/ODataQuerySimulator.csproj" />
+  <Project Path="RegexTester/RegexTester.csproj" />
+</Solution>
