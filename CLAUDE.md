@@ -19,6 +19,7 @@ dotnet build                                    # build entire solution
 dotnet build MiniApps.sln -c Release             # matches CI (azure-pipelines.yml)
 dotnet run --project ODataQuerySimulator         # run the OData console app
 dotnet run --project CronExpressionSimulator     # run the cron expression console app
+dotnet run --project RegexTester                 # run the regex tester console app
 dotnet run --project Borderless                  # run the borderless WPF app
 ```
 
@@ -35,3 +36,4 @@ CI (`azure-pipelines.yml`) runs on an Azure Pipelines self-hosted (`default` poo
   - The `Program.Main` loop is a REPL: reads a `$filter=` expression from stdin, parses+evaluates it, and prints matches; supports `help`, `data`, `exit`/`quit` commands.
   - When extending supported OData syntax, add cases to `EvalBinary`/`EvalFunction`/`ResolveFunctionValue` in `FilterEvaluator` — unsupported node types/operators/functions throw `NotSupportedException` by design (caught and reported in the REPL loop), so no silent fallback behavior is expected.
 - **CronExpressionSimulator** (`CronExpressionSimulator/`) — Console app (`net10.0`) built on the [Cronos](https://github.com/HangfireIO/Cronos) NuGet package for cron parsing/scheduling. Everything lives in `Program.cs`: a REPL (`cron>` prompt) that parses a cron expression via `CronExpression.Parse` and prints the next 10 occurrences. Supports standard 5-field expressions, an optional leading seconds field (auto-detected by field count in `ParseFormat`), and `@` macros (`@daily`, `@hourly`, etc.). `GetNextOccurrence` requires the `from` timestamp to be UTC when a `TimeZoneInfo` is supplied — internal timestamps are kept in UTC and only converted to local time for display. Supports `help`/`exit`/`quit` commands.
+- **RegexTester** (`RegexTester/`) — Console app (`net10.0`), no external packages (uses `System.Text.RegularExpressions` from the BCL). Everything lives in `Program.cs`: a two-mode REPL. `pattern>` prompt compiles a `.NET` regex (a 2s `MatchTimeout` guards against catastrophic backtracking); on success it switches to `test [pattern]>` prompt, where each line is matched against the compiled pattern and printed with match/group indices. Inline options (`(?i)`, `(?m)`, etc.) are the supported way to set flags rather than a custom flags syntax. Supports `help`, `pattern` (return to pattern mode), `exit`/`quit` commands.
